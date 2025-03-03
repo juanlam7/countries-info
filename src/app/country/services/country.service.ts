@@ -59,6 +59,7 @@ export class CountryService {
       })
     );
   }
+
   searchByRegion(region: Region) {
     const url = `${API_URL}/region/${region}`;
 
@@ -74,6 +75,22 @@ export class CountryService {
 
         return throwError(
           () => new Error(`No se pudo obtener países con ese query ${region}`)
+        );
+      })
+    );
+  }
+
+  searchCountryByAlphaCode(code: string) {
+    const url = `${API_URL}/alpha/${code}`;
+
+    return this.http.get<RESTCountry[]>(url).pipe(
+      map((resp) => CountryMapper.mapRestCountryArrayToCountryArray(resp)),
+      map((countries) => countries.at(0)),
+      catchError((error) => {
+        console.log('Error fetching ', error);
+
+        return throwError(
+          () => new Error(`No se pudo obtener países con ese código ${code}`)
         );
       })
     );

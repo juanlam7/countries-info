@@ -1,9 +1,10 @@
 import { Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { SvgWrapperComponent } from "../svg-wrapper/svg-wrapper.component";
 
 @Component({
   selector: 'app-not-found',
-  imports: [],
+  imports: [SvgWrapperComponent],
   templateUrl: './not-found.component.html',
 })
 export class NotFoundComponent {

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SvgWrapperComponent } from '../svg-wrapper/svg-wrapper.component';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
   templateUrl: './footer.component.html',
+  imports: [RouterLink, SvgWrapperComponent],
 })
 export class FooterComponent {
   capitals = ['Buenos Aires', 'Paris', 'Berlin', 'Amsterdam'];
